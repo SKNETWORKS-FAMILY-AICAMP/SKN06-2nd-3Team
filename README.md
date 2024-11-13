@@ -58,7 +58,7 @@
 #### 모델 평가
 <img width="359" alt="image" src="https://github.com/user-attachments/assets/25b18330-8a2b-4512-aa18-db716a160e9e">
 
-
+뷸균형하니까 accuracy는 성능평가 기준으로 적합하지 않음. f1 score를 기준으로 사용.
 
 #### 적용된 모델:
 
