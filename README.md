@@ -27,7 +27,7 @@
 
 
 ## 2. 기술스택 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=ffffff) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=ffffff) ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-FF6F20?style=flat&logo=google&logoColor=ffffff)
+
 
 
 
