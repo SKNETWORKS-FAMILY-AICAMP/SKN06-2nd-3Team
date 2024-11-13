@@ -56,6 +56,8 @@
 ### - 모델 💻
 
 #### 모델 평가
+<img width="359" alt="image" src="https://github.com/user-attachments/assets/25b18330-8a2b-4512-aa18-db716a160e9e">
+
 
 
 #### 적용된 모델:
