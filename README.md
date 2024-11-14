@@ -38,20 +38,21 @@
 
 ## 3. 과정 
 
-# 데이터 전처리
+### 데이터 전처리
+
 1. column 삭제
 - 도메인 지식 
 도메인 지식으로 다음 column은 통신사 고객 이탈 여부와 관계가 매우 낮다고 판단하여 삭제함
 
-OffPeakCallsInOut : 비피크 시간대의 통화 수
-HandsetRefurbished : 중고 기기 사용 여부
-TruckOwner : 트럭 소유 여부
-RVOwner : RV 소유 여부
-BuysViaMailOrder : 우편 주문으로 구매 여부
-RespondsToMailOffers : 우편을 통한 제안에 응답 여부
-OptOutMailings : 우편 발송 거부 여부
-OwnsComputer : 컴퓨터 소유 여부
-OwnsMotorcycle : 오토바이 소유 여부
+OffPeakCallsInOut : 비피크 시간대의 통화 수<br/>
+HandsetRefurbished : 중고 기기 사용 여부<br/>
+TruckOwner : 트럭 소유 여부<br/>
+RVOwner : RV 소유 여부<br/>
+BuysViaMailOrder : 우편 주문으로 구매 여부<br/>
+RespondsToMailOffers : 우편을 통한 제안에 응답 여부<br/>
+OptOutMailings : 우편 발송 거부 여부<br/>
+OwnsComputer : 컴퓨터 소유 여부<br/>
+OwnsMotorcycle : 오토바이 소유 여부<br/>
 
 - 불균형
 95% 이상이 하나의 값인 경우 해당 컬럼은 
