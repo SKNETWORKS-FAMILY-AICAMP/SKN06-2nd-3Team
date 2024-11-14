@@ -44,6 +44,7 @@
 <br>
 <br>
 - 고객 이탈률 분포 
+<br>
 <img width="359" alt="churn_distribution" src="https://github.com/user-attachments/assets/555fd403-907c-4eb6-a43c-bde136c4c56d">
 
 
