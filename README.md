@@ -38,7 +38,14 @@
 
 ## 3. 과정 
 
-### 데이터 전처리
+## 01. 데이터 전처리
+
+### 1) EDA 
+<br>
+<br>
+- 고객 이탈률 분포 
+<img width="359" alt="churn_distribution" src="https://github.com/user-attachments/assets/555fd403-907c-4eb6-a43c-bde136c4c56d">
+
 
 1. column 삭제
 - 도메인 지식 
