@@ -43,9 +43,19 @@
 ### 1) EDA 
 <br>
 <br>
-- 고객 이탈률 분포 
+- Target data 분포 
+<br>
 <br>
 <img width="359" alt="churn_distribution" src="https://github.com/user-attachments/assets/555fd403-907c-4eb6-a43c-bde136c4c56d">
+<br>
+<br>
+- Feature 분포 (수치형/범주)
+<br>
+<br>
+<img width="936" alt="boxplot_1" src="https://github.com/user-attachments/assets/699c2f6e-3bc6-47c8-9ba2-a63d2389a861">
+<img width="939" alt="boxplot_2" src="https://github.com/user-attachments/assets/089d548b-a595-4142-8d56-2c9e691db059">
+<img width="938" alt="boxplot_3" src="https://github.com/user-attachments/assets/f3eabacc-9392-4cc9-87bd-323d6ccaaaa3">
+
 
 
 1. column 삭제
