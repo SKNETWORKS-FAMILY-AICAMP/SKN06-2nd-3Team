@@ -55,6 +55,10 @@
 <img width="936" alt="boxplot_1" src="https://github.com/user-attachments/assets/699c2f6e-3bc6-47c8-9ba2-a63d2389a861">
 <img width="939" alt="boxplot_2" src="https://github.com/user-attachments/assets/089d548b-a595-4142-8d56-2c9e691db059">
 <img width="938" alt="boxplot_3" src="https://github.com/user-attachments/assets/f3eabacc-9392-4cc9-87bd-323d6ccaaaa3">
+- Correlation Matrix (수치형 상관관계)
+<br>
+<br>
+<img width="524" alt="heatmap" src="https://github.com/user-attachments/assets/568e41f7-2d78-4d14-bfee-8b995012cac2">
 
 
 
