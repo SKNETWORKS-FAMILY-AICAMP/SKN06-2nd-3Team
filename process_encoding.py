@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import StandardScaler, MinMaxScaler, OneHotEncoder
+from sklearn.preprocessing import OneHotEncoder
 
 def convertint(X):
     X.Churn = X.Churn.replace("Yes", 1)
