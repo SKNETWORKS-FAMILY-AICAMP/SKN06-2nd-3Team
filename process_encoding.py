@@ -82,7 +82,7 @@ def load_df():
     
     # 정수 변환 및 인코딩
     convertint(traindf)
-    ohot_list = ['ChildrenInHH', 'HandsetRefurbished', 'HandsetWebCapable', 'HasCreditCard', 'NewCellphoneUser', 'NotNewCellphoneUser', 'PrizmCode', 'Occupation','ServiceArea']
+    ohot_list = ['ChildrenInHH', 'HandsetRefurbished', 'HandsetWebCapable', 'HasCreditCard', 'NewCellphoneUser', 'NotNewCellphoneUser', 'PrizmCode', 'Occupation', 'ServiceArea', 'BuysViaMailOrder']
     traindf = ohot(traindf, ohot_list)
     return traindf
 
