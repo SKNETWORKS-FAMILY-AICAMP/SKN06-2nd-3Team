@@ -96,16 +96,29 @@
 'ThreewayCalls': 3자 통화 사용 횟수<br>
 <br>
 <br>
-- 결측치 확인
-  - 결측치 없음
-<div align="left">
-<img src="Image/결측치 확인.png" style="float: left;" width="250" height="520" />
 
 #### 2-3. 결측치 처리
 <br>
-- null 값 개수 확인 결과 전체 데이터 개수의 적은 비율을 차지하고 있어 null값이 포함된 행은 삭제함
-
-
+-null 값<br>
+null 값 개수 확인 결과 전체 데이터 개수의 적은 비율을 차지하고 있어 null값이 포함된 행은 삭제함
+<br>
+<img width="172" alt="null_drop" src="https://github.com/user-attachments/assets/9ea1dcdc-1dde-4519-8745-f577eb7b8f77">
+<br>
+<br>
+-unknown 값<br>
+unknown 값이 있는 열 모두 비율이 높아 해당 열은 삭제함
+<br>
+<img width="138" alt="unknown_drop" src="https://github.com/user-attachments/assets/1d4186e2-e780-4f53-8e74-b2ce74ebde08">
+<br>
+<br>
+-0 값<br>
+0값이 있는 열은 0값이 얼마나 있는지 평균,중앙값과 함께 히스토그램으로 확인함<br>
+평균,중앙값,다른 값의 크기로 보아 숫자 0이 의미있는 값이 아닌 결측치라고 판단되는 'AgeHH1','AgeHH2' 열 삭제함
+<br>
+<img width="817" alt="zero_drop" src="https://github.com/user-attachments/assets/261e4c9b-9cb0-4a73-9065-355b3d3cd4f2">
+<br>
+(의미 있는 행 예시)<br>
+<img width="812" alt="zero_nondrop" src="https://github.com/user-attachments/assets/7791e057-1009-450c-99c2-c76276192fe8">
 
 
 
