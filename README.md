@@ -66,7 +66,14 @@
 
 ### 2) 결측치 처리 
 
-1. column 삭제
+#### 2-1. Customer ID 삭제
+- 결측치 확인
+  - 결측치 없음
+<div align="left">
+<img src="Image/결측치 확인.png" style="float: left;" width="250" height="520" />
+
+<br>
+2. 
 - 도메인 지식 
 도메인 지식으로 다음 column은 통신사 고객 이탈 여부와 관계가 매우 낮다고 판단하여 삭제함
 
