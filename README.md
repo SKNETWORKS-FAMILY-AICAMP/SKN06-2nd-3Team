@@ -43,9 +43,7 @@
 
 ## 3. 과정 
 
-## 01. 데이터 전처리
-
-### 1) EDA 
+### 01. EDA 
 <br>
 <br>
 - Target data 분포 
@@ -69,7 +67,7 @@
 
 
 
-### 2) 결측치 처리 
+### 02. 데이터 전처리
 
 #### 2-1. Customer ID 삭제
 <br>
@@ -77,7 +75,6 @@
 <br>
 
 #### 2-2. feature 선택
-<br>
 <br>
 - 불균형 : 하나의 값이 95% 이상<br>
 이런 column은 모델 효율성 저하, Overfitting 등의 문제를 야기하므로 해당 열을 삭제함.
@@ -104,6 +101,9 @@
 <div align="left">
 <img src="Image/결측치 확인.png" style="float: left;" width="250" height="520" />
 
+#### 2-3. 결측치 처리
+<br>
+- null 값 개수 확인 결과 전체 데이터 개수의 적은 비율을 차지하고 있어 null값이 포함된 행은 삭제함
 
 
 
