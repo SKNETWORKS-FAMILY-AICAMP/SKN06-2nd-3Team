@@ -171,6 +171,14 @@ def load_df(return_X_y=False, validset=True, test_size = 0.2, random_state=42):
         return X_train, X_test, y_train, y_test
     return traindf
 
+def processor(inputdata):
+    num_col = inputdata.select_dtypes(include=[np.number]).columns
+    cate_col = inputdata.select_dtypes(include=['object', 'category']).columns
+    inputdata[num_col] = outlier_iqr(inputdata[num_col])
+    inputdata[cate_col] = ifmode(inputdata[cate_col], cate_col)
+    inputdata = ohot(inputdata, cate_col)
+    return inputdata
+
 if __name__ == "__main__":
     load_df().to_csv('./chk.csv', index=False)
     # print(load_df().columns)
