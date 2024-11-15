@@ -67,7 +67,11 @@
 ### 2) 결측치 처리 
 
 #### 2-1. Customer ID 삭제
-
+<br>
+<br>
+- 'Customer ID' 삭제
+<br>
+<br>
 #### 2-2. feature 선택
 <br>
 <br>
@@ -76,8 +80,21 @@
 <br>
 <br>
 <img width="774" alt="drop_95" src="https://github.com/user-attachments/assets/478bdb0b-dc55-41e9-b04c-347ca17effe2">
-
-
+<br>
+<br>
+- 도메인 지식
+도메인 지식으로 해당 열은 삭제함.
+<br>
+<br>
+'OffPeakCallsInOut': 비피크 시간대의 통화 수<br>
+'HandsetRefurbished': 중고 휴대폰 여부<br>
+'TruckOwner': 트럭 소유 여부<br>
+'RVOwner': RV 소유 여부<br>
+'RespondsToMailOffers': 우편 제안에 대한 응답 여부<br>
+'OwnsComputer': 컴퓨터 소유 여부<br>
+'ThreewayCalls': 3자 통화 사용 횟수<br>
+<br>
+<br>
 - 결측치 확인
   - 결측치 없음
 <div align="left">
