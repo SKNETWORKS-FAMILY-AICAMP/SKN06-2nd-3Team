@@ -67,6 +67,17 @@
 ### 2) 결측치 처리 
 
 #### 2-1. Customer ID 삭제
+
+#### 2-2. feature 선택
+<br>
+<br>
+- 불균형 : 하나의 값이 95% 이상
+이런 column은 모델 효율성 저하, Overfitting 등의 문제를 야기하므로 해당 열을 삭제함.
+<br>
+<br>
+<img width="774" alt="drop_95" src="https://github.com/user-attachments/assets/478bdb0b-dc55-41e9-b04c-347ca17effe2">
+
+
 - 결측치 확인
   - 결측치 없음
 <div align="left">
