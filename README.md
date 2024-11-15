@@ -122,8 +122,23 @@ unknown 값이 있는 열 모두 비율이 높아 해당 열은 삭제함
 <br>
 (의미 있는 0값 예시)<br>
 <img width="812" alt="zero_nondrop" src="https://github.com/user-attachments/assets/7791e057-1009-450c-99c2-c76276192fe8">
+<br>
+<br>
 
-
+#### 2-4. 이상치 처리
+<br>
+-데이터 변환<br>
+이상치 처리에 앞서 필요한 값들 데이터 변환<br><br>
+1) 'Churn' 컬럼 변환
+<br>
+"Yes": 1, "No": 0
+<br>
+2) 'ServiceArea' 컬럼 변환
+<br>
+'ServiceArea' column의 고유값은 748개임. '지역명+숫자3자리' 형태. 지역명중에서도 앞의 3자리가 도시 이름이어서 도시 이름으로 바꾼 후, 각각의 도시를 동부,중부,서부 3가지로 나눠 고유값 3개로 줄임.<br>
+'East': ['BOS', 'PHI', 'NYC', 'PIT', 'MIA', 'ATL', 'HAR', 'NSH', 'NCR', 'NNY'],<br>
+'Center': ['CHI', 'DET', 'STL', 'DAL', 'HOU', 'KCY', 'OMA', 'IND', 'INH', 'IPM', 'AWI', 'FLN', 'OHI', 'OHH'],<br>
+'West': ['LAX', 'SFR', 'SEA', 'SAN', 'PHX', 'DEN', 'SLC', 'LAU', 'NEV', 'NMC', 'NMX', 'NVU', 'HWI', 'SHE', 'SDA', 'SEW', 'SFU', 'SLU']<br>
 
 ### - 모델 💻
 
