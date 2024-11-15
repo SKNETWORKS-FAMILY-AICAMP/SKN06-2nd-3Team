@@ -120,7 +120,7 @@ unknown 값이 있는 열 모두 비율이 높아 해당 열은 삭제함
 <br>
 <img width="817" alt="zero_drop" src="https://github.com/user-attachments/assets/261e4c9b-9cb0-4a73-9065-355b3d3cd4f2">
 <br>
-(의미 있는 행 예시)<br>
+(의미 있는 0값 예시)<br>
 <img width="812" alt="zero_nondrop" src="https://github.com/user-attachments/assets/7791e057-1009-450c-99c2-c76276192fe8">
 
 
