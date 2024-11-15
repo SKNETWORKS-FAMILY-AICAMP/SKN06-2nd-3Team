@@ -7,10 +7,15 @@
 ## 0. 팀 소개 
 
   ### 팀명 
-    가나디즈
+  **가나디즈**ᘳ´• ᴥ •`ᘰ 
   ### 팀원 👥
-  
-  | 이세화          | 김동훈        | 안형진       | 전수연         |
+ 
+ ![스크린샷 2024-11-14 185809](https://github.com/user-attachments/assets/1890f376-14ac-4e97-a455-78d45cb71a38)
+ ![스크린샷 2024-11-14 185834](https://github.com/user-attachments/assets/c02a6911-c1fd-4940-bd6d-f3a37de77a90)
+ ![스크린샷 2024-11-14 185730](https://github.com/user-attachments/assets/d0d11852-4f3c-4462-8e9d-7a2f71419db8)
+ ![스크린샷 2024-11-14 191022](https://github.com/user-attachments/assets/8d273c62-cddc-4c7c-829c-9e1478881266)
+
+  | 이세화૮ ･ ﻌ･ა   | &nbsp; &nbsp; &nbsp;   &nbsp;     | 김동훈◖⚆ᴥ⚆◗ |&nbsp; &nbsp; &nbsp;  &nbsp;       | 안형진 ૮ ºﻌºა |&nbsp; &nbsp; &nbsp;      | 전수연υ´• ﻌ •`υ         |
  
 
 
