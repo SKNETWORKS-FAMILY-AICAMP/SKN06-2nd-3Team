@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import StandardScaler, MinMaxScaler, OneHotEncoder
+from sklearn.preprocessing import OneHotEncoder
 
 def convertint(X):
     X.Churn = X.Churn.replace("Yes", 1)
@@ -82,7 +82,7 @@ def load_df():
     
     # 정수 변환 및 인코딩
     convertint(traindf)
-    ohot_list = ['ChildrenInHH', 'HandsetRefurbished', 'HandsetWebCapable', 'HasCreditCard', 'NewCellphoneUser', 'NotNewCellphoneUser', 'PrizmCode', 'Occupation','ServiceArea']
+    ohot_list = ['ChildrenInHH', 'HandsetRefurbished', 'HandsetWebCapable', 'HasCreditCard', 'NewCellphoneUser', 'NotNewCellphoneUser', 'PrizmCode', 'Occupation', 'ServiceArea', 'BuysViaMailOrder']
     traindf = ohot(traindf, ohot_list)
     return traindf
 

@@ -38,7 +38,33 @@
 
 ## 3. 과정 
 
-### 데이터 전처리
+## 01. 데이터 전처리
+
+### 1) EDA 
+<br>
+<br>
+- Target data 분포 
+<br>
+<br>
+<img width="359" alt="churn_distribution" src="https://github.com/user-attachments/assets/555fd403-907c-4eb6-a43c-bde136c4c56d">
+<br>
+<br>
+- Feature 분포 (수치형/범주)
+<br>
+<br>
+<img width="936" alt="boxplot_1" src="https://github.com/user-attachments/assets/699c2f6e-3bc6-47c8-9ba2-a63d2389a861">
+<img width="939" alt="boxplot_2" src="https://github.com/user-attachments/assets/089d548b-a595-4142-8d56-2c9e691db059">
+<img width="938" alt="boxplot_3" src="https://github.com/user-attachments/assets/f3eabacc-9392-4cc9-87bd-323d6ccaaaa3">
+- Correlation Matrix (수치형 상관관계)
+<br>
+<br>
+<img width="524" alt="heatmap" src="https://github.com/user-attachments/assets/568e41f7-2d78-4d14-bfee-8b995012cac2">
+
+
+
+
+
+### 2) 결측치 처리 
 
 1. column 삭제
 - 도메인 지식 
@@ -57,23 +83,14 @@ OwnsMotorcycle : 오토바이 소유 여부<br/>
 - 불균형
 95% 이상이 하나의 값인 경우 해당 컬럼은 
 
-![alt text](output.png)
-
-    
 
  
 
 
 
 
-### - 데이터 전처리 요약 🔍
+]
 
-
-####  결측치 처리
-
-####  이상치 처리
-
-#### 범주형 데이터 처리
   
 
 
