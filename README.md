@@ -68,21 +68,20 @@
 
 #### 2-1. Customer ID 삭제
 <br>
-<br>
 - 'Customer ID' 삭제
 <br>
-<br>
+
 #### 2-2. feature 선택
 <br>
 <br>
-- 불균형 : 하나의 값이 95% 이상
+- 불균형 : 하나의 값이 95% 이상<br>
 이런 column은 모델 효율성 저하, Overfitting 등의 문제를 야기하므로 해당 열을 삭제함.
 <br>
 <br>
 <img width="774" alt="drop_95" src="https://github.com/user-attachments/assets/478bdb0b-dc55-41e9-b04c-347ca17effe2">
 <br>
 <br>
-- 도메인 지식
+- 도메인 지식<br>
 도메인 지식으로 해당 열은 삭제함.
 <br>
 <br>
@@ -100,33 +99,7 @@
 <div align="left">
 <img src="Image/결측치 확인.png" style="float: left;" width="250" height="520" />
 
-<br>
-2. 
-- 도메인 지식 
-도메인 지식으로 다음 column은 통신사 고객 이탈 여부와 관계가 매우 낮다고 판단하여 삭제함
 
-OffPeakCallsInOut : 비피크 시간대의 통화 수<br/>
-HandsetRefurbished : 중고 기기 사용 여부<br/>
-TruckOwner : 트럭 소유 여부<br/>
-RVOwner : RV 소유 여부<br/>
-BuysViaMailOrder : 우편 주문으로 구매 여부<br/>
-RespondsToMailOffers : 우편을 통한 제안에 응답 여부<br/>
-OptOutMailings : 우편 발송 거부 여부<br/>
-OwnsComputer : 컴퓨터 소유 여부<br/>
-OwnsMotorcycle : 오토바이 소유 여부<br/>
-
-- 불균형
-95% 이상이 하나의 값인 경우 해당 컬럼은 
-
-
- 
-
-
-
-
-]
-
-  
 
 
 
