@@ -69,7 +69,7 @@ def outlier_iqr(df, whis=2.0):
         
     return df
 
-def load_df(return_X_y=False, test_size = 0.2, random_state=42):
+def load_df(return_X_y=False, validset=True, test_size = 0.2, random_state=42):
     traindf = pd.read_csv("./dataset/cell2celltrain.csv")
 
     # 결측치 제거
@@ -90,6 +90,9 @@ def load_df(return_X_y=False, test_size = 0.2, random_state=42):
         y = traindf.Churn
         X = traindf.drop(columns="Churn")
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
+        if validset:
+            X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=test_size, random_state=random_state)
+            return X_train, X_val, X_test, y_train, y_val, y_test
         return X_train, X_test, y_train, y_test
     return traindf
 
