@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import OneHotEncoder
+from sklearn.model_selection import train_test_split
 
 def convertint(X):
     X.Churn = X.Churn.replace("Yes", 1)
@@ -68,7 +69,7 @@ def outlier_iqr(df, whis=2.0):
         
     return df
 
-def load_df():
+def load_df(return_X_y=False, test_size = 0.2, random_state=42):
     traindf = pd.read_csv("./dataset/cell2celltrain.csv")
 
     # 결측치 제거
@@ -84,6 +85,12 @@ def load_df():
     convertint(traindf)
     ohot_list = ['ChildrenInHH', 'HandsetRefurbished', 'HandsetWebCapable', 'HasCreditCard', 'NewCellphoneUser', 'NotNewCellphoneUser', 'PrizmCode', 'Occupation', 'ServiceArea', 'BuysViaMailOrder']
     traindf = ohot(traindf, ohot_list)
+    
+    if return_X_y:
+        y = traindf.Churn
+        X = traindf.drop(columns="Churn")
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
+        return X_train, X_test, y_train, y_test
     return traindf
 
 if __name__ == "__main__":
