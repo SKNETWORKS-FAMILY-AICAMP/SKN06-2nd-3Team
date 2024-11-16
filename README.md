@@ -239,8 +239,40 @@ Light Gradient Boosting Machine의 약자로, 그래디언트 부스팅의 또 �
     y_train_tensor = torch.tensor(y_train_resampled.values, dtype=torch.float32).unsqueeze(1)
     y_test_tensor = torch.tensor(y_test.values, dtype=torch.float32).unsqueeze(1)
 
-    
-### 3-3. 모델 분석 결과
+
+**모델**
+
+    # 모델 정의
+    class SimpleNN(nn.Module):
+        def __init__(self, input_size):
+            super(SimpleNN, self).__init__()
+            self.layer1 = nn.Linear(input_size, 512)
+            self.layer2 = nn.Linear(512, 256)
+            self.layer3 = nn.Linear(256, 128)
+            self.layer4 = nn.Linear(128, 64)
+            self.layer5 = nn.Linear(64, 32)
+            self.output = nn.Linear(32, 1)
+
+        def forward(self, x):
+            x = torch.relu(self.layer1(x))
+            x = torch.relu(self.layer2(x))
+            x = torch.relu(self.layer3(x))
+            x = torch.relu(self.layer4(x))
+            x = torch.relu(self.layer5(x))
+            x = self.output(x)
+            return x
+
+    # 하이퍼파라미터 그리드 
+    learning_rates = [0.001, 0.0001]
+    epochs_list = [20, 100, 500]
+    thresholds = [0.5, 0.7]
+    grid = list(product(learning_rates, epochs_list, thresholds))
+
+
+**분석**
+
+
+## 04. 결과 💻
 
 ______________________________________________________________________________________________________
 
