@@ -299,12 +299,16 @@ ________________________________________________________________________________
     grid = list(product(learning_rates, epochs_list, thresholds))
 
 
-**분석**
+<br>
+<br>
+모델 시간이 오래 걸려 lr=0.001, epoch 무한 조기종료, threshold=0.7 설정한 모델로 결과값 출력
+**결과**
 <br>
 <br>
 <img width="572" alt="dl_result" src="https://github.com/user-attachments/assets/ce974445-5460-4b7e-890a-98f862335cba">
-
-
+<br>
+<br>
+recall이 precision보다 더 중요하다고 판단되기는 하나 recall값이 1.0으로 지나치게 높게 나왔고 precision이 낮게 나옴
 ## 04. 결과 💻
 
 ______________________________________________________________________________________________________
