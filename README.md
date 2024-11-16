@@ -189,30 +189,46 @@ ________________________________________________________________________________
 ## 03. 모델 💻
 
 ### 3-1. 머신러닝 모델
+**DecisionTreeClassifier 모델**:<br>
+특성을 기반으로 데이터를 재귀적으로 분할하여 트리 구조의 분류 모델을 만듭니다. 해석이 쉽지만 과적합 위험이 있습니다.<br>
+![DT](https://github.com/user-attachments/assets/a8b4800a-8cd8-47ec-9e5d-2b43d7abd8f2)
+<br>
 
-#### 적용된 모델:
-- **LogisticRegression**:  
-선형 분류 모델로, 입력 특성의 선형 결합을 사용하여 클래스 확률을 예측합니다. 이진 분류와 다중 분류에 모두 사용될 수 있으며, 해석이 쉽고 계산 비용이 적습니다.<br/>
-- **GradientBoostingClassifier**:<br/>
-여러 개의 약한 학습기(주로 결정 트리)를 순차적으로 학습시켜 강한 분류기를 만드는 앙상블 방법입니다. 각 단계에서 이전 모델의 오차를 보완하는 방식으로 학습합니다.<br/>
-- **RandomForestClassifier**:<br/>
-여러 개의 결정 트리를 독립적으로 학습시키고 그 결과를 종합하는 앙상블 방법입니다. 각 트리는 데이터의 부분집합과 특성의 부분집합을 사용하여 학습됩니다.<br/>
-- **KNeighborsClassifier**:<br/>
-새로운 데이터 포인트에 대해 가장 가까운 k개의 이웃 데이터 포인트들의 클래스를 참조하여 분류를 수행하는 비모수적 방법입니다.<br/>
-- **XGBClassifier**:<br/>
-그래디언트 부스팅의 최적화된 구현으로, 높은 성능과 빠른 학습 속도를 제공합니다. 병렬 처리와 정규화 기능을 포함하고 있습니다.<br/>
-- **DecisionTreeClassifier**:<br/>
-특성을 기반으로 데이터를 재귀적으로 분할하여 트리 구조의 분류 모델을 만듭니다. 해석이 쉽지만 과적합 위험이 있습니다.<br/>
-- **LGBMClassifier**:<br/>
-Light Gradient Boosting Machine의 약자로, 그래디언트 부스팅의 또 다른 최적화 구현입니다. 리프 중심 트리 성장 전략을 사용하여 더 빠른 학습과 더 나은 성능을 제공합니다.<br/>
+**Random Forest 모델**:<br>
+여러 개의 결정 트리를 독립적으로 학습시키고 그 결과를 종합하는 앙상블 방법입니다.<br>
+클래스 가중치(class_weight='balanced')를 설정하여 데이터 불균형 문제를 어느 정도 해결했습니다.<br>
+이 모델에서 F1 점수가 0.46으로 제일 높았습니다.<br>
+![RF](https://github.com/user-attachments/assets/2556a26a-ca96-4185-a7a1-dccb26006644)
+<br>
+**GradientBoostingClassifier 모델**:<br>
+여러 개의 약한 학습기(주로 결정 트리)를 순차적으로 학습시켜 강한 분류기를 만드는 앙상블 방법입니다. 각 단계에서 이전 모델의 오차를 보완하는 방식으로 학습합니다.<br>
+![GB](https://github.com/user-attachments/assets/0acf6910-bd39-4417-9a30-cb6b6301d5e6)<br>
+**LGBMClassifier 모델**:<br>
+그래디언트 부스팅의 또 다른 최적화 구현입니다. 리프 중심 트리 성장 전략을 사용하여 더 빠른 학습과 더 나은 성능을 제공합니다.<br>
+![LBM](https://github.com/user-attachments/assets/a0420ea4-b13e-4a45-a02b-cd81d7a50f07)<br>
+**KNeighborsClassifier모델**:<br>
+새로운 데이터 포인트에 대해 가장 가까운 k개의 이웃 데이터 포인트들의 클래스를 참조하여 분류를 수행하는 비모수적 방법입니다.<br>
+![KNN](https://github.com/user-attachments/assets/fbb15a74-e447-4d7b-97c0-767599665349)<br>
+**LogisticRegression모델**:<br>
+선형 분류 모델로, 입력 특성의 선형 결합을 사용하여 클래스 확률을 예측합니다.<br>
+이진 분류와 다중 분류에 모두 사용될 수 있으며, 해석이 쉽고 계산 비용이 적습니다.<br>
+역시나 클래스 가중치(class_weight='balanced')를 설정하니 f1점수가 두번째로 높게 나왔습니다.<br>
+![LR](https://github.com/user-attachments/assets/096e3ef2-0d06-4ebe-9242-0680c325c8a0)<br>
 
-#### 데이터셋:
+#### RandomizedSearchCV를 이용한 성능개선:
+ F1점수가 가장 높게 나온 Random Forest 모델을 선정하여 하이퍼 파라미터 튜닝을 진행하였습니다.<br>
+ 결과는 f1점수가 0.47로 아주 미약한 상승(0.1)하였습니다.
+ ![스크린샷 2024-11-16 174133](https://github.com/user-attachments/assets/7d42c706-ac6c-451e-862f-ff6c512eecb2)
+
+#### 최종 모델의 confusion_matrix:
+![스크린샷 2024-11-16 182904](https://github.com/user-attachments/assets/3b1b1a7d-0b47-4035-906b-010dd286cf0a)
+
 
 #### 분석 지표:
 - Precision
 - Recall
 - F1 Score
-- Kappa
+- ROC-AUC Score
 ### 3-2. 딥러닝 모델
 
 
