@@ -33,32 +33,35 @@ ________________________________________________________________________________
 ______________________________________________________________________________________________________
 
 
-## 01. EDA 
+## 01. EDA💻
 
-<br>
-<br>
-- Target data 분포 
+### 1-1. Target data 분포 
 <br>
 <br>
 <img width="359" alt="churn_distribution" src="https://github.com/user-attachments/assets/555fd403-907c-4eb6-a43c-bde136c4c56d">
 <br>
 <br>
-- Feature 분포 (수치형/범주)
+
+### 1-2. Feature 분포
 <br>
 <br>
 <img width="936" alt="boxplot_1" src="https://github.com/user-attachments/assets/699c2f6e-3bc6-47c8-9ba2-a63d2389a861">
 <img width="939" alt="boxplot_2" src="https://github.com/user-attachments/assets/089d548b-a595-4142-8d56-2c9e691db059">
 <img width="938" alt="boxplot_3" src="https://github.com/user-attachments/assets/f3eabacc-9392-4cc9-87bd-323d6ccaaaa3">
-- Correlation Matrix (수치형 상관관계)
+<br>
+<br>
+
+### 1-3. Correlation Matrix (수치형 상관관계)
 <br>
 <br>
 <img width="524" alt="heatmap" src="https://github.com/user-attachments/assets/568e41f7-2d78-4d14-bfee-8b995012cac2">
+<br>
+<br>
 
 
 
 
-
-## 02. 데이터 전처리
+## 02. 데이터 전처리💻
 
 ### 2-1. Customer ID 삭제
 <br>
@@ -94,19 +97,27 @@ ________________________________________________________________________________
 
 ### 2-3. 결측치 처리
 <br>
--null 값<br>
+
+**null 값**
+<br>
 null 값 개수 확인 결과 전체 데이터 개수의 적은 비율을 차지하고 있어 null값이 포함된 행은 삭제함
+<br>
 <br>
 <img width="172" alt="null_drop" src="https://github.com/user-attachments/assets/9ea1dcdc-1dde-4519-8745-f577eb7b8f77">
 <br>
 <br>
--unknown 값<br>
+
+**unknown 값**
+<br>
 unknown 값이 있는 열 모두 비율이 높아 해당 열은 삭제함
+<br>
 <br>
 <img width="138" alt="unknown_drop" src="https://github.com/user-attachments/assets/1d4186e2-e780-4f53-8e74-b2ce74ebde08">
 <br>
 <br>
--0 값<br>
+
+**0 값**
+<br>
 0값이 있는 열은 0값이 얼마나 있는지 평균,중앙값과 함께 히스토그램으로 확인함<br>
 평균,중앙값,다른 값의 크기로 보아 숫자 0이 의미있는 값이 아닌 결측치라고 판단되는 'AgeHH1','AgeHH2' 열 삭제함
 <br>
@@ -121,10 +132,12 @@ unknown 값이 있는 열 모두 비율이 높아 해당 열은 삭제함
 <br>
 
 ### 2-4. 이상치 처리
-
 <br>
--데이터 변환<br>
-이상치 처리에 앞서 필요한 값들 데이터 변환<br><br>
+
+**데이터 변환**
+<br>
+이상치 처리에 앞서 필요한 값들 데이터 변환
+<br>
 
 (1) 'Churn' 컬럼 변환
 <br>
@@ -132,7 +145,7 @@ unknown 값이 있는 열 모두 비율이 높아 해당 열은 삭제함
 
 (2) 'ServiceArea' 컬럼 변환
 <br>
-'ServiceArea' column의 고유값은 748개임. '지역명+숫자3자리' 형태. 지역명중에서도 앞의 3자리가 도시 이름이어서 도시 이름으로 바꾼 후, 각각의 도시를 동부,중부,서부 3가지로 나눠 고유값 3개로 줄임.<br>
+'ServiceArea' column의 고유값은 748개임. '지역명+숫자3자리' 형태. 지역명중에서도 앞의 3자리가 도시 이름이어서 도시 이름으로 바꾼 후, 각각의 도시를 동부,중부,서부 3가지로 나눠 고유값 3개로 줄임<br>
 'East': ['BOS', 'PHI', 'NYC', 'PIT', 'MIA', 'ATL', 'HAR', 'NSH', 'NCR', 'NNY'],<br>
 'Center': ['CHI', 'DET', 'STL', 'DAL', 'HOU', 'KCY', 'OMA', 'IND', 'INH', 'IPM', 'AWI', 'FLN', 'OHI', 'OHH'],<br>
 'West': ['LAX', 'SFR', 'SEA', 'SAN', 'PHX', 'DEN', 'SLC', 'LAU', 'NEV', 'NMC', 'NMX', 'NVU', 'HWI', 'SHE', 'SDA', 'SEW', 'SFU', 'SLU']<br>
@@ -142,11 +155,14 @@ unknown 값이 있는 열 모두 비율이 높아 해당 열은 삭제함
 문자열+숫자 형태의 값 정수로 변환
 "1-Highest": 1, "2-High": 2, "3-Good": 3,"4-Medium": 4, "5-Low": 5, "6-VeryLow": 6,"7-Lowest": 7
 <br>
-
--이상치 처리 (수치형 데이터)<br>
-이상치를 어떻게 대체할지 구분하는 함수에 column 리스트를 넣어서 분류
 <br>
-함수 내용
+
+**이상치 처리 (수치형 데이터)**
+<br>
+이상치 대체값을 구분하는 함수 생성. column 리스트를 함수에 넣어 각 열 별로 어떤 대체값을 사용할 것이지 결정
+<br>
+<br>
+<img width="356" alt="grouping_column" src="https://github.com/user-attachments/assets/86e93dee-bffc-41de-a4a1-dad240d752b9">
 <br>
 skew > 1 or skew < -1 : 중앙값으로 대체<br>
 상한값(Upper Bound)과 하한값(Lower Bound) 사이의 값이 95% 이상인 경우 : IQR 대체<br>
@@ -154,7 +170,20 @@ Q1~Q3 범위에 값이 75% 이상 포함되는 경우:  Q1~Q3 범위 대체<br>
 최댓값(max)이 상한값(Upper Bound)을 초과하는 경우 : 상한값 대체<br>
 최솟값(min)이 하한값(Lower Bound) 미만인 경우 : 하한값 대체<br>
 
-### 2-5. 인코딩
+**이상치 처리 (범주형 데이터)**
+<br>
+5% 미만의 값은 이상치로 판단하고 최반값으로 대체
+<br>
+<br>
+<img width="215" alt="replacement_mode" src="https://github.com/user-attachments/assets/a27f1f61-5f9b-48cd-bfbe-19f7e2f863ad">
+<br>
+<br>
+
+### 2-5. 원핫인코딩
+<br>
+과도한 차원 증가를 막고자 범주가 10개 미만인 열만 원핫인코딩 진행
+<br>
+<br>
 ______________________________________________________________________________________________________
 
 ## 03. 모델 💻
@@ -185,6 +214,32 @@ Light Gradient Boosting Machine의 약자로, 그래디언트 부스팅의 또 �
 - F1 Score
 - Kappa
 ### 3-2. 딥러닝 모델
+
+
+**변수 처리**
+
+    # 타겟 분리
+    X = data.drop(columns=['Churn'])  
+    y = data['Churn']
+    
+    # 데이터 표준화
+    scaler = StandardScaler()
+    X_scaled = scaler.fit_transform(X)
+
+    # 데이터 분할
+    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+    
+    # 오버샘플링(불균형 해결)
+    ros = RandomOverSampler(random_state=42)
+    X_train_resampled, y_train_resampled = ros.fit_resample(X_train, y_train)
+
+    # 텐서로 변환
+    X_train_tensor = torch.tensor(X_train_resampled, dtype=torch.float32)
+    X_test_tensor = torch.tensor(X_test, dtype=torch.float32)
+    y_train_tensor = torch.tensor(y_train_resampled.values, dtype=torch.float32).unsqueeze(1)
+    y_test_tensor = torch.tensor(y_test.values, dtype=torch.float32).unsqueeze(1)
+
+    
 ### 3-3. 모델 분석 결과
 
 ______________________________________________________________________________________________________
