@@ -1,4 +1,4 @@
-# streamlit run streamlit.py
+# streamlit run app.py
 import streamlit as st
 import process_encoding as pe
 import joblib
