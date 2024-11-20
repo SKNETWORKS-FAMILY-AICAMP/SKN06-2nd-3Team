@@ -132,6 +132,18 @@ def outlier_iqr(df, whis=2.0):
         lower_bound = q1 - 1.5 * IQR
         df.loc[df[column] < lower_bound, column] = q1
     return df
+
+def save_columns(columns, filename="train_columns.txt"):
+    column = pd.Index(columns).drop_duplicates()
+    with open(filename, "w") as file:
+        for col in column:
+            file.write(f"{col}\n")
+
+
+def load_columns(filename="train_columns.txt"):
+    with open(filename, "r") as file:
+        columns = [line.strip() for line in file]
+    return pd.Index(columns).drop_duplicates()
     
 
 def load_df(return_X_y=False, validset=True, test_size = 0.2, random_state=42):
@@ -156,6 +168,7 @@ def load_df(return_X_y=False, validset=True, test_size = 0.2, random_state=42):
     traindf = traindf.loc[:, ~traindf.columns.duplicated()]
     y = traindf.Churn
     X = traindf.drop(columns="Churn")
+    save_columns(X.columns)
     
     if return_X_y:
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
@@ -170,7 +183,10 @@ def processor(input_data):
     num_col = input_data.select_dtypes(include=[np.number]).columns
     cate_col = input_data.select_dtypes(include=['object', 'category']).columns
     input_data[num_col] = outlier_iqr(input_data[num_col])
+    train_col = load_columns()
     input_data_ohe = ohot(input_data, cate_col)
+    input_data_ohe = input_data_ohe.loc[:, ~input_data_ohe.columns.duplicated(keep='first')]
+    input_data_ohe = input_data_ohe.reindex(columns=train_col, fill_value=0)
     input_data = pd.concat([input_data.drop(columns=cate_col), input_data_ohe], axis=1)
     input_data = input_data.loc[:, ~input_data.columns.duplicated()]
     return input_data

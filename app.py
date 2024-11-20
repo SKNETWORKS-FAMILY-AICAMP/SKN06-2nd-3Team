@@ -31,7 +31,7 @@ def evaluate_conditions(children_in_hh, handset_web_capable, buys_via_mail_order
         'NewCellphoneUser_No': not new_cellphone_user,
         'NewCellphoneUser_Yes': new_cellphone_user,
         'PrizmCode_Other': prizm_code == 'Other',
-        'PrizmCode_Surburban': prizm_code == 'Surburban',
+        'PrizmCode_Suburban': prizm_code == 'Suburban',
         'PrizmCode_Town': prizm_code == 'Town',
     }
 
@@ -63,8 +63,8 @@ MonthsInService  = st.sidebar.number_input('서비스 가입 월수', min_value=
 UniqueSubs  = st.sidebar.number_input('고유 가입자 수', min_value=0, value=0)
 ActiveSubs  = st.sidebar.number_input('활성 가입자 수', min_value=0, value=0)
 Handsets = st.sidebar.number_input('휴대폰 수', min_value=0, value=0)
-CurrentEquipmentDays = st.sidebar.number_input('현재 장비 사용 일수', min_value=0.0, value=0.0,step=1.0)
 HandsetModels = st.sidebar.number_input('휴대폰 모델 수', min_value=0, value=0, step = 1)
+CurrentEquipmentDays = st.sidebar.number_input('현재 장비 사용 일수', min_value=0.0, value=0.0,step=1.0)
 IncomeGroup = st.sidebar.number_input('소득 그룹', min_value=0, max_value=9, value=0, step=1)
 
 # 범주형
@@ -127,8 +127,8 @@ if btn:
         'CreditRating': [credit_rating],
         'PrizmCode': [prizm_code],
         'Occupation': [occupation],
-        'NonUSTravel_NO' : True,
-        'NonUSTravel-YES' : False,
+        'NonUSTravel_No' : True,
+        'NonUSTravel_Yes' : False,
         'BuysViaMailOrder_No' : True,
         'BuysViaMailOrder_Yes' : False,
         'NotNewCellphoneUser_No' : True,          
@@ -141,7 +141,7 @@ if btn:
         'HasCreditCard_Yes': has_credit_card,
         'NewCellphoneUser_No': not new_cellphone_user,
         'NewCellphoneUser_Yes': new_cellphone_user,
-        'PrizmCode_Surburban': prizm_code == 'Surburban',
+        'PrizmCode_Suburban': prizm_code == 'Suburban',
         'PrizmCode_Town': prizm_code == 'Town'
 
     })
