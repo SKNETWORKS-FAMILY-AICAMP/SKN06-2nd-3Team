@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import sys
 import os
-
+from PIL import Image
     
 # Streamlit 앱 설정
 st.set_page_config(layout="wide", page_title="고객 이탈률 예측", page_icon="🔍")
@@ -151,7 +151,37 @@ if btn:
     prediction = model.predict(preprocessor.to_numpy())
     prediction_proba = model.predict_proba(preprocessor)[:, 1]
 
+    col1,col2 = st.columns([2,3])
+
+
+    import time 
+
+    # 방법 1 progress bar 
+    latest_iteration = st.empty()
+    bar = st.progress(0)
+
+    for i in range(100):
+      # Update the progress bar with each iteration.
+      latest_iteration.text(f'예측중 {i+1}')
+      bar.progress(i + 1)
+      time.sleep(0.01)
+      # 0.01 초 마다 1씩증가
+
     # 결과 출력
-    st.header('예측 결과')
-    st.subheader(f'이탈여부 예측: {"이탈" if prediction[0] == 1 else "이탈X"}')
-    st.write(f'이탈 확률: {prediction_proba[0]*100:.2f}%')
+    col1.title('예측 결과')
+
+    
+    col1.subheader(f'이탈여부 예측: {"이탈 O" if prediction[0] == 1 else "이탈 X"}', divider = 'gray')
+    col1.subheader(f'이탈 확률: {prediction_proba[0]*100:.2f}%')
+
+
+    # 이탈 여부에 따른 이미지 선택 및 표시
+    if prediction[0] == 1:
+        image = Image.open('images/ganadi.png')  # 이탈 O 이미지
+        caption = "고객 이탈 예측"
+    else:
+        image = Image.open('images/ganadi3.jpg')  # 이탈 X 이미지
+        caption = "고객 유지 예측"
+
+    # 선택된 이미지 표시
+    col2.image(image, caption=caption, use_column_width=True)
