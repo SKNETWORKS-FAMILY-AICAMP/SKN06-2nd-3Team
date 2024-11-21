@@ -239,7 +239,13 @@ feature importance를 분석했을 때 데이터의 불균형이 심하고 또�
 
 
 #### 최종 모델의 confusion_matrix:
-![스크린샷 2024-11-16 182904](https://github.com/user-attachments/assets/3b1b1a7d-0b47-4035-906b-010dd286cf0a)
+![스크린샷 2024-11-16 182904](https://github.com/user-attachments/assets/3b1b1a7d-0b47-4035-906b-010dd286cf0a)<br>
+분석:<br>
+	장점: Recall (74.1%)값이 높아 모델이 실제 Positive 데이터를 비교적 놓치지 않고 잘 포착하고 있습니다.  고객 이탈 탐지 예측 모델에선 이탈하는 고객을 놓치지 않는 것이 더 중요하기에 꽤 의미있는 지표라  고 볼 수 있습니다.
+
+	한계점:<br>
+Precision (35.1%):  False Positive가 많습니다. 이는 모델이 Positive를 과대 예측하고 있음을 의미합니다.<br>
+Specificity (45.0%): 실제 Negative 데이터를 잘못 Positive로 예측하는 경우(FP)가 많아 Negative 구분 능력이 부족합니다.<br>
 
 
 
