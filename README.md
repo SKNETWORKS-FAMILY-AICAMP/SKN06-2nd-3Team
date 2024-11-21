@@ -306,7 +306,7 @@ ________________________________________________________________________________
 **결과**
 <br>
 <br>
-<img width="572" alt="dl_result" src="https://github.com/user-attachments/assets/ce974445-5460-4b7e-890a-98f862335cba">
+<img width="579" alt="dl_best_result" src="https://github.com/user-attachments/assets/fb233bae-fb2d-48c9-916c-cbbd74ddad00">
 <br>
 <br>
 recall이 precision보다 더 중요하다고 판단되기는 하나 recall값이 1.0으로 지나치게 높게 나왔고 precision이 낮게 나옴
