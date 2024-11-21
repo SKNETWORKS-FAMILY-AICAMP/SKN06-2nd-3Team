@@ -166,7 +166,7 @@ unknown 값이 있는 열 모두 비율이 높아 해당 열은 삭제함
 <br>
 skew > 1 or skew < -1 : 중앙값으로 대체<br>
 상한값(Upper Bound)과 하한값(Lower Bound) 사이의 값이 95% 이상인 경우 : IQR 대체<br>
-Q1~Q3 범위에 값이 75% 이상 포함되는 경우:  Q1~Q3 범위 대체<br>
+Q1 ~ Q3 범위의 값이 75% 이상 포함되는 경우 :  Q1~Q3 범위 대체<br>
 최댓값(max)이 상한값(Upper Bound)을 초과하는 경우 : 상한값 대체<br>
 최솟값(min)이 하한값(Lower Bound) 미만인 경우 : 하한값 대체<br>
 
