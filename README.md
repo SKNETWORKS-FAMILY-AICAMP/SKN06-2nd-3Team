@@ -189,6 +189,11 @@ ________________________________________________________________________________
 ## 03. 모델 💻
 
 ### 3-1. 머신러닝 모델
+#### 주요 지표 선정 이유:
+![image](https://github.com/user-attachments/assets/cd7ac6eb-2f9a-456b-9683-15df0c15bdf3).<br>
+feature importance를 분석했을 때 데이터의 불균형이 심하고 또한 고객의 이탈 여부를 확인하는 이진분류 문제이므로<br>
+평가 척도로 F1 score를 선택하는 것이 제일 모델의 신뢰도를 높일 수 있다고 생각했습니다..<br>
+
 **DecisionTreeClassifier 모델**:<br>
 특성을 기반으로 데이터를 재귀적으로 분할하여 트리 구조의 분류 모델을 만듭니다. 해석이 쉽지만 과적합 위험이 있습니다.<br>
 ![DT](https://github.com/user-attachments/assets/a8b4800a-8cd8-47ec-9e5d-2b43d7abd8f2)
@@ -226,7 +231,9 @@ ________________________________________________________________________________
 
 
 #### RandomizedSearchCV를 이용한 성능개선:
- F1점수가 가장 높게 나온 Random Forest 모델을 선정하여 하이퍼 파라미터 튜닝을 진행하였습니다.<br>
+ F1점수가 가장 높게 나온 Random Forest 모델을 선정하여 RandomizedSearchCV를 이용하여 하이퍼 파라미터 튜닝을 진행하였습니다.<br>
+ RandomizedSearchCV를 이용한 이유는 **GridSearchCV를 시도하였지만 시간이 너무나도 오래걸렸고**(5시간 돌려도 안됨) <br>
+ 또한 **불균형한 데이터를 클래스 가중치(class_weight='balanced')를 설정하는 것으로 해결**했기 때문에 하이퍼파라미터 조합 중 일부를 랜덤으로 샘플링하여 효율적으로 최적의 하이퍼파라미터를 찾는RandomizedSearchCV가 이러한 상황에 더 적합하다고 판단했습니다.<br>
  결과는 f1점수가 0.47로 아주 미약한 상승(0.1)하였습니다.<br>
  ![스크린샷 2024-11-16 174133](https://github.com/user-attachments/assets/7d42c706-ac6c-451e-862f-ff6c512eecb2)<br><br>
 
@@ -234,12 +241,6 @@ ________________________________________________________________________________
 #### 최종 모델의 confusion_matrix:
 ![스크린샷 2024-11-16 182904](https://github.com/user-attachments/assets/3b1b1a7d-0b47-4035-906b-010dd286cf0a)
 
-
-#### 분석 지표:
-- Precision
-- Recall
-- F1 Score
-- ROC-AUC Score
 
 
 
