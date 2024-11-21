@@ -208,6 +208,12 @@ Q1 ~ Q3 범위의 값이 75% 이상 포함되는 경우 :  Q1~Q3 범위 대체<b
 최댓값(max)이 상한값(Upper Bound)을 초과하는 경우 : 상한값 대체<br>
 최솟값(min)이 하한값(Lower Bound) 미만인 경우 : 하한값 대체<br>
 
+
+<br>
+<img width="473" alt="image" src="https://github.com/user-attachments/assets/35000b15-0285-4a9b-8936-045c88a6b31d">
+<br>
+<br>
+
 **이상치 처리 (범주형 데이터)**
 <br>
 5% 미만의 값은 이상치로 판단하고 최반값으로 대체
