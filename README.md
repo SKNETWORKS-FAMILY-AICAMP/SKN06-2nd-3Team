@@ -232,7 +232,7 @@ feature importance를 분석했을 때 데이터의 불균형이 심하고 또�
 
 #### RandomizedSearchCV를 이용한 성능개선:
  F1점수가 가장 높게 나온 Random Forest 모델을 선정하여 RandomizedSearchCV를 이용하여 하이퍼 파라미터 튜닝을 진행하였습니다.<br>
- RandomizedSearchCV를 이용한 이유는 **GridSearchCV를 시도하였지만 시간이 너무나도 오래걸렸고**(5시간 돌려도 안됨) <br>
+ RandomizedSearchCV를 이용한 이유는 **GridSearchCV를 시도하였지만 모델 학습 시간이 너무 길었고**(5시간 돌려도 안됨) <br>
  또한 **불균형한 데이터를 클래스 가중치(class_weight='balanced')를 설정하는 것으로 해결**했기 때문에 하이퍼파라미터 조합 중 일부를 랜덤으로 샘플링하여 효율적으로 최적의 하이퍼파라미터를 찾는RandomizedSearchCV가 이러한 상황에 더 적합하다고 판단했습니다.<br>
  결과는 f1점수가 0.47로 아주 미약한 상승(0.1)하였습니다.<br>
  ![스크린샷 2024-11-16 174133](https://github.com/user-attachments/assets/7d42c706-ac6c-451e-862f-ff6c512eecb2)<br><br>
@@ -240,10 +240,11 @@ feature importance를 분석했을 때 데이터의 불균형이 심하고 또�
 
 #### 최종 모델의 confusion_matrix:
 ![스크린샷 2024-11-16 182904](https://github.com/user-attachments/assets/3b1b1a7d-0b47-4035-906b-010dd286cf0a)<br>
-분석:<br>
-	장점: Recall (74.1%)값이 높아 모델이 실제 Positive 데이터를 비교적 놓치지 않고 잘 포착하고 있습니다.  고객 이탈 탐지 예측 모델에선 이탈하는 고객을 놓치지 않는 것이 더 중요하기에 꽤 의미있는 지표라  고 볼 수 있습니다.
+#### 분석:
+장점: <br>
+Recall (74.1%)값이 높아 모델이 실제 Positive 데이터를 비교적 놓치지 않고 잘 포착하고 있습니다.  고객 이탈 탐지 예측 모델에선 이탈하는 고객을 놓치지 않는 것이 더 중요하기에 꽤 의미있는 지표라  고 볼 수 있습니다.
 
-	한계점:<br>
+한계점: <br>
 Precision (35.1%):  False Positive가 많습니다. 이는 모델이 Positive를 과대 예측하고 있음을 의미합니다.<br>
 Specificity (45.0%): 실제 Negative 데이터를 잘못 Positive로 예측하는 경우(FP)가 많아 Negative 구분 능력이 부족합니다.<br>
 
