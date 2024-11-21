@@ -309,7 +309,7 @@ Specificity (45.0%): 실제 Negative 데이터를 잘못 Positive로 예측하�
 
 <br>
 <br>
-모델 시간이 오래 걸려 lr=0.001, epoch 무한 조기종료, threshold=0.8 설정한 모델로 결과값 출력
+모델 시간이 오래 걸려 lr=0.001, epoch=100, threshold=0.8 설정한 모델로 결과값 출력
 
 **결과**
 <br>
