@@ -162,7 +162,45 @@ unknown 값이 있는 열 모두 비율이 높아 해당 열은 삭제함
 이상치 대체값을 구분하는 함수 생성. column 리스트를 함수에 넣어 각 열 별로 어떤 대체값을 사용할 것이지 결정
 <br>
 <br>
-<img width="356" alt="grouping_column" src="https://github.com/user-attachments/assets/86e93dee-bffc-41de-a4a1-dad240d752b9">
+
+    # 대체값 그룹
+    median_group = []
+    iqr_group = []
+    q1_q3_group = []
+    upper_bound_group = []
+    lower_bound_group = []
+    
+
+    # 대체값 분류 함수
+    for column in numerical_features:
+        if column in data.columns:
+    
+            col_data = data[column].dropna()
+            q1 = col_data.quantile(0.25)
+            q3 = col_data.quantile(0.75)
+            iqr = q3 - q1
+            lower_bound = q1 - 2.0 * iqr
+            upper_bound = q3 + 2.0 * iqr
+
+            # boxplot
+            plt.figure(figsize=(6, 4))
+            sns.boxplot(col_data)
+            plt.title(f"Boxplot of {column}")
+            plt.show()
+
+            # 분류
+            if col_data.skew() > 1 or col_data.skew() < -1:
+                median_group.append(column)
+            elif col_data.between(lower_bound, upper_bound).mean() > 0.95:
+                iqr_group.append(column)
+            elif col_data.between(q1, q3).mean() > 0.75:
+                q1_q3_group.append(column)
+            elif col_data.max() > upper_bound:
+                upper_bound_group.append(column)
+            elif col_data.min() < lower_bound:
+                lower_bound_group.append(column)
+
+                
 <br>
 skew > 1 or skew < -1 : 중앙값으로 대체<br>
 상한값(Upper Bound)과 하한값(Lower Bound) 사이의 값이 95% 이상인 경우 : IQR 대체<br>
