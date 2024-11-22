@@ -190,7 +190,29 @@ unknown 값이 있는 열 모두 비율이 높아 해당 열은 삭제함
 
             # 분류
             if col_data.skew() > 1 or col_data.skew() < -1:
-                median_group.append(빈값으로 대체
+                median_group.append(column)
+            elif col_data.between(lower_bound, upper_bound).mean() > 0.95:
+                iqr_group.append(column)
+            elif col_data.between(q1, q3).mean() > 0.75:
+                q1_q3_group.append(column)
+            elif col_data.max() > upper_bound:
+                upper_bound_group.append(column)
+            elif col_data.min() < lower_bound:
+                lower_bound_group.append(column)
+                
+<br>
+skew > 1 or skew < -1 : 중앙값으로 대체<br>
+상한값(Upper Bound)과 하한값(Lower Bound) 사이의 값이 95% 이상인 경우 : IQR 대체<br>
+Q1 ~ Q3 범위의 값이 75% 이상 포함되는 경우 :  Q1~Q3 범위 대체<br>
+최댓값(max)이 상한값(Upper Bound)을 초과하는 경우 : 상한값 대체<br>
+최솟값(min)이 하한값(Lower Bound) 미만인 경우 : 하한값 대체<br>
+<br>
+<img width="473" alt="image" src="https://github.com/user-attachments/assets/35000b15-0285-4a9b-8936-045c88a6b31d">
+<br>
+<br>
+**이상치 처리 (범주형 데이터)**
+<br>
+5% 미만의 값은 이상치로 판단하고 최빈값으로 대체
 <br>
 <br>
 <img width="215" alt="replacement_mode" src="https://github.com/user-attachments/assets/a27f1f61-5f9b-48cd-bfbe-19f7e2f863ad">
