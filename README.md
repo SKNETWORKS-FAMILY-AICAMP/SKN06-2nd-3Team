@@ -190,33 +190,7 @@ unknown 값이 있는 열 모두 비율이 높아 해당 열은 삭제함
 
             # 분류
             if col_data.skew() > 1 or col_data.skew() < -1:
-                median_group.append(column)
-            elif col_data.between(lower_bound, upper_bound).mean() > 0.95:
-                iqr_group.append(column)
-            elif col_data.between(q1, q3).mean() > 0.75:
-                q1_q3_group.append(column)
-            elif col_data.max() > upper_bound:
-                upper_bound_group.append(column)
-            elif col_data.min() < lower_bound:
-                lower_bound_group.append(column)
-
-                
-<br>
-skew > 1 or skew < -1 : 중앙값으로 대체<br>
-상한값(Upper Bound)과 하한값(Lower Bound) 사이의 값이 95% 이상인 경우 : IQR 대체<br>
-Q1 ~ Q3 범위의 값이 75% 이상 포함되는 경우 :  Q1~Q3 범위 대체<br>
-최댓값(max)이 상한값(Upper Bound)을 초과하는 경우 : 상한값 대체<br>
-최솟값(min)이 하한값(Lower Bound) 미만인 경우 : 하한값 대체<br>
-
-
-<br>
-<img width="473" alt="image" src="https://github.com/user-attachments/assets/35000b15-0285-4a9b-8936-045c88a6b31d">
-<br>
-<br>
-
-**이상치 처리 (범주형 데이터)**
-<br>
-5% 미만의 값은 이상치로 판단하고 최반값으로 대체
+                median_group.append(빈값으로 대체
 <br>
 <br>
 <img width="215" alt="replacement_mode" src="https://github.com/user-attachments/assets/a27f1f61-5f9b-48cd-bfbe-19f7e2f863ad">
@@ -243,14 +217,6 @@ feature importance를 분석했을 때 데이터의 불균형이 심하고 또�
 ![DT](https://github.com/user-attachments/assets/a8b4800a-8cd8-47ec-9e5d-2b43d7abd8f2)
 <br>
 <br>
-**Random Forest 모델**:<br>
-여러 개의 결정 트리를 독립적으로 학습시키고 그 결과를 종합하는 앙상블 방법입니다.<br>
-클래스 가중치(class_weight='balanced')를 설정하여 데이터 불균형 문제를 어느 정도 해결했습니다.<br>
-이 모델에서 F1 점수가 0.46으로 제일 높았습니다.<br>
-![RF](https://github.com/user-attachments/assets/2556a26a-ca96-4185-a7a1-dccb26006644)
-<br>
-<br>
-
 
 **GradientBoostingClassifier 모델**:<br>
 여러 개의 약한 학습기(주로 결정 트리)를 순차적으로 학습시켜 강한 분류기를 만드는 앙상블 방법입니다. 각 단계에서 이전 모델의 오차를 보완하는 방식으로 학습합니다.<br>
@@ -273,17 +239,29 @@ feature importance를 분석했을 때 데이터의 불균형이 심하고 또�
 역시나 클래스 가중치(class_weight='balanced')를 설정하니 f1점수가 두번째로 높게 나왔습니다.<br>
 ![LR](https://github.com/user-attachments/assets/096e3ef2-0d06-4ebe-9242-0680c325c8a0)<br><br>
 
+**Random Forest 모델**:<br>
+여러 개의 결정 트리를 독립적으로 학습시키고 그 결과를 종합하는 앙상블 방법입니다.<br>
+클래스 가중치(class_weight='balanced')를 설정하여 데이터 불균형 문제를 어느 정도 해결했습니다.<br>
+이 모델에서 F1 점수가 0.46으로 제일 높았습니다.<br>
+![RF](https://github.com/user-attachments/assets/2556a26a-ca96-4185-a7a1-dccb26006644)
+<br>
+<br>
 
 #### RandomizedSearchCV를 이용한 성능개선:
  F1점수가 가장 높게 나온 Random Forest 모델을 선정하여 RandomizedSearchCV를 이용하여 하이퍼 파라미터 튜닝을 진행하였습니다.<br>
  RandomizedSearchCV를 이용한 이유는 **GridSearchCV를 시도하였지만 모델 학습 시간이 너무 길었고**(5시간 이상) <br>
  또한 **불균형한 데이터를 클래스 가중치(class_weight='balanced')를 설정하는 것으로 보완**했기 때문에 하이퍼파라미터 조합 중 일부를 랜덤으로 샘플링하여 효율적으로 최적의 하이퍼파라미터를 찾는RandomizedSearchCV가 이러한 상황에 더 적합하다고 판단했습니다.<br>
  결과는 f1점수가 0.47로 아주 미약한 상승(0.1)하였습니다.<br>
- ![스크린샷 2024-11-16 174133](https://github.com/user-attachments/assets/7d42c706-ac6c-451e-862f-ff6c512eecb2)<br><br>
+ 
 
 
 #### 최종 모델의 confusion_matrix:
 ![스크린샷 2024-11-16 182904](https://github.com/user-attachments/assets/3b1b1a7d-0b47-4035-906b-010dd286cf0a)<br>
+<br>
+<br>
+
+![스크린샷 2024-11-16 174133](https://github.com/user-attachments/assets/7d42c706-ac6c-451e-862f-ff6c512eecb2)<br><br>
+
 #### 분석:
 장점: <br>
 Recall (74.1%)값이 높아 모델이 실제 Positive 데이터를 비교적 놓치지 않고 잘 포착하고 있습니다.  고객 이탈 탐지 예측 모델에선 이탈하는 고객을 놓치지 않는 것이 더 중요하기에 꽤 의미있는 지표라  고 볼 수 있습니다.
@@ -353,7 +331,7 @@ Specificity (45.0%): 실제 Negative 데이터를 잘못 Positive로 예측하�
 
 <br>
 <br>
-모델 시간이 오래 걸려 lr=0.001, epoch=100, threshold=0.8 설정한 모델로 결과값 출력
+모델 시간이 오래 걸려 lr=0.0005, epoch=100, threshold=0.8 설정한 모델로 결과값 출력
 
 **결과**
 <br>
